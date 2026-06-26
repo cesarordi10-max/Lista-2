@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+
+// Función que encuentra el elemento máximo
+int encontrarMaximo(const std::vector<int>& v) {
+    // Si el vector está vacío, podemos manejar el error o devolver un valor por defecto
+    if (v.empty()) {
+        std::cerr << "Error: El vector está vacío." << std::endl;
+        return 0; // O lanzar una excepción
+    }
+
+    // Inicializamos el máximo con el primer elemento del vector
+    int maximo = v[0];
+
+    // Recorremos el vector desde el segundo elemento
+    for (size_t i = 1; i < v.size(); ++i) {
+        if (v[i] > maximo) {
+            maximo = v[i]; // Actualizamos si encontramos uno mayor
+        }
+    }
+
+    return maximo;
+}
+
+int main() {
+    // Vector de prueba
+    std::vector<int> numeros = {3, 14, -5, 42, 8, 21, 0};
+
+    int max = encontrarMaximo(numeros);
+
+    std::cout << "El elemento máximo del vector es: " << max << std::endl;
+
+    return 0;
+}
+
