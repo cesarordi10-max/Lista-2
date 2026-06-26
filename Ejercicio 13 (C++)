@@ -1,0 +1,60 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int m, n;
+    cout << "Ingrese filas (m) y columnas (n): ";
+    cin >> m >> n;
+
+    int matriz[m][n];
+    cout << "Ingrese los elementos de la matriz:\n";
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            cin >> matriz[i][j];
+        }
+    }
+
+    vector<int> v;
+
+    int inicioFila = 0, finFila = m - 1;
+    int inicioCol = 0, finCol = n - 1;
+
+    // 1. Fila superior (Izquierda a Derecha)
+    for(int j = inicioCol; j <= finCol; j++) {
+        v.push_back(matriz[inicioFila][j]);
+    }
+    inicioFila++;
+
+    // 2. Columna derecha (Arriba a Abajo)
+    for(int i = inicioFila; i <= finFila; i++) {
+        v.push_back(matriz[i][finCol]);
+    }
+    finCol--;
+
+    // 3. Fila inferior (Derecha a Izquierda) - Si queda fila restante
+    if (inicioFila <= finFila) {
+        for(int j = finCol; j >= inicioCol; j--) {
+            v.push_back(matriz[finFila][j]);
+        }
+        finFila--;
+    }
+
+    // 4. Columna izquierda (Abajo a Arriba) - Si queda columna restante
+    if (inicioCol <= finCol) {
+        for(int i = finFila; i >= inicioFila; i--) {
+            v.push_back(matriz[i][inicioCol]);
+        }
+        inicioCol++;
+    }
+
+    // Imprimir vector resultante
+    cout << "\nVector v (Bordes en sentido horario):\n";
+    for(int num : v) {
+        cout << num << " ";
+    }
+    cout << "\n";
+
+    return 0;
+}
