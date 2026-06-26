@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño n para la matriz cuadrada (n x n): ";
+    cin >> n;
+
+    int matriz[n][n];
+    cout << "Ingrese los elementos de la matriz:\n";
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            cin >> matriz[i][j];
+        }
+    }
+
+    int sumaN = 0;
+
+    cout << "\nElementos que forman la 'N':\n";
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            // Condición para formar la letra N
+            if(j == 0 || j == n - 1 || i == j) {
+                cout << matriz[i][j] << "\t";
+                sumaN += matriz[i][j];
+            } else {
+                cout << ".\t"; // Espacio en blanco visual
+            }
+        }
+        cout << "\n";
+    }
+
+    cout << "\nLa suma de los elementos que forman la 'N' es: " << sumaN << "\n";
+
+    return 0;
+}
