@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    // Optimizar entrada/salida de datos
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(NULL);
+
+    int n;
+    std::cout << "Ingrese la dimension del vector: ";
+    std::cin >> n;
+
+    // Validación básica de tamaño
+    if (n <= 0) {
+        std::cout << "La dimension debe ser un numero positivo.\n";
+        return 1;
+    }
+
+    std::vector<double> vectorOriginal(n);
+
+    // Lectura de los componentes del vector
+    std::cout << "Ingrese las " << n << " componentes del vector:\n";
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Componente [" << i + 1 << "]: ";
+        std::cin >> vectorOriginal[i];
+    }
+
+    // Lectura del número real a sumar
+    double escalar;
+    std::cout << "\nIngrese el numero real (escalar) que desea sumar: ";
+    std::cin >> escalar;
+
+    // Calcular el vector resultante modificando el original
+    // Se usa un bucle basado en rangos por referencia para modificar los valores
+    for (double &componente : vectorOriginal) {
+        componente += escalar;
+    }
+
+    // Mostrar el vector resultante
+    std::cout << "\nEl vector resultante es:\n[ ";
+    for (int i = 0; i < n; ++i) {
+        std::cout << vectorOriginal[i] << (i < n - 1 ? ", " : "");
+    }
+    std::cout << " ]\n";
+
+    return 0;
+}
