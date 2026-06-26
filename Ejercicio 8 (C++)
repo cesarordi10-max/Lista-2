@@ -1,0 +1,42 @@
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+int main() {
+    int m, n;
+    cout << "Ingrese filas (m) y columnas (n): ";
+    cin >> m >> n;
+
+    int matriz[m][n];
+    cout << "Ingrese los elementos de la matriz:\n";
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            cin >> matriz[i][j];
+        }
+    }
+
+    int menor = INT_MAX, mayor = INT_MIN;
+    int filaMenor = 0, colMenor = 0, filaMayor = 0, colMayor = 0;
+
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            if(matriz[i][j] < menor) {
+                menor = matriz[i][j];
+                filaMenor = i;
+                colMenor = j;
+            }
+            if(matriz[i][j] > mayor) {
+                mayor = matriz[i][j];
+                filaMayor = i;
+                colMayor = j;
+            }
+        }
+    }
+
+    cout << "\nEl menor elemento es " << menor << " en la posicion [" << filaMenor << "][" << colMenor << "]\n";
+    cout << "El mayor elemento es " << mayor << " en la posicion [" << filaMayor << "][" << colMayor << "]\n";
+
+    return 0;
+}
+
