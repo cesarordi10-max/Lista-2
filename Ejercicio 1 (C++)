@@ -1,0 +1,21 @@
+#include <iostream>
+#include <vector>
+#include <numeric> // Para std::accumulate
+
+int main() {
+    std::vector<double> numeros = {10.5, 20.0, 30.25, 40.75, 50.0};
+
+    if (numeros.empty()) {
+        std::cout << "El vector está vacío. No se puede calcular la media." << std::endl;
+        return 1;
+    }
+
+    // std::accumulate suma los elementos desde el inicio hasta el fin, empezando en 0.0
+    double suma = std::accumulate(numeros.begin(), numeros.end(), 0.0);
+
+    double media = suma / numeros.size();
+
+    std::cout << "La media de los elementos del vector es: " << media << std::endl;
+
+    return 0;
+}
