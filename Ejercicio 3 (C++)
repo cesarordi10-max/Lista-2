@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int n;
+    std::cout << "Ingrese el tamano de los vectores: ";
+    std::cin >> n;
+
+    std::vector<double> v(n), w(n);
+    double producto_escalar = 0.0;
+
+    std::cout << "Ingrese los elementos de V:" << std::endl;
+    for (int i = 0; i < n; i++) {
+        std::cin >> v[i];
+    }
+
+    std::cout << "Ingrese los elementos de W:" << std::endl;
+    for (int i = 0; i < n; i++) {
+        std::cin >> w[i];
+    }
+
+    // Cálculo directo del producto escalar
+    for (int i = 0; i < n; i++) {
+        producto_escalar += v[i] * w[i];
+    }
+
+    std::cout << "El producto escalar es: " << producto_escalar << std::endl;
+
+    return 0;
+}
