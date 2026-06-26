@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+#include <limits> // Para utilizar numeric_limits
+
+using namespace std;
+
+// Función que devuelve el mínimo de un vector
+int encontrarMinimo(const vector<int>& v) {
+    // Si el vector está vacío, podemos lanzar una excepción o devolver un valor por defecto
+    if (v.empty()) {
+        cerr << "Error: El vector está vacío." << endl;
+        return 0; 
+    }
+
+    // Inicializamos el mínimo con el primer elemento del vector
+    int minimo = v[0];
+
+    // Recorremos el vector desde el segundo elemento
+    for (size_t i = 1; i < v.size(); ++i) {
+        if (v[i] < minimo) {
+            minimo = v[i]; // Actualizamos el mínimo si encontramos uno menor
+        }
+    }
+
+    return minimo;
+}
+
+int main() {
+    // Vector de prueba
+    vector<int> miVector = {23, 54, 12, 87, 9, 32, 6};
+
+    int min = encontrarMinimo(miVector);
+
+    cout << "El elemento minimo del vector es: " << min << endl;
+
+    return 0;
+}
