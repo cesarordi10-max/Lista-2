@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+
+// Función que multiplica el vector por el escalar (modifica el vector por referencia)
+void multiplicarVector(std::vector<double>& v, double escalar) {
+    for (double& componente : v) {
+        componente *= escalar;
+    }
+}
+
+int main() {
+    int n;
+    double escalar;
+
+    std::cout << "Ingrese la dimension del vector: ";
+    std::cin >> n;
+
+    std::vector<double> v(n);
+    std::cout << "Ingrese las componentes del vector:\n";
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Componente [" << i + 1 << "]: ";
+        std::cin >> v[i];
+    }
+
+    std::cout << "Ingrese el numero por el que desea multiplicar: ";
+    std::cin >> escalar;
+
+    // Llamada a la función de multiplicación
+    multiplicarVector(v, escalar);
+
+    // Mostrar el vector resultante
+    std::cout << "\nVector resultante: [ ";
+    for (double componente : v) {
+        std::cout << componente << " ";
+    }
+    std::cout << "]\n";
+
+    return 0;
+}
