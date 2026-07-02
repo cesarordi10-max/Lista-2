@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double a, b, c, d;
+
+    cout << "Ingrese el limite izquierdo (a) e derecho (b) del primer intervalo [a, b]: ";
+    cin >> a >> b;
+    cout << "Ingrese el limite izquierdo (c) e derecho (d) del segundo intervalo [c, d]: ";
+    cin >> c >> d;
+
+    // El inicio de la intersección es el máximo entre los dos límites izquierdos
+    double inicioInterseccion = (a > c) ? a : c;
+    
+    // El fin de la intersección es el mínimo entre los dos límites derechos
+    double finInterseccion = (b < d) ? b : d;
+
+    // Validamos si efectivamente existe una intersección real
+    if (inicioInterseccion <= finInterseccion) {
+        cout << "La interseccion de los intervalos es: [" << inicioInterseccion << ", " << finInterseccion << "]\n";
+    } else {
+        cout << "No existe interseccion entre los intervalos dados (Interseccion vacia).\n";
+    }
+
+    return 0;
+}
