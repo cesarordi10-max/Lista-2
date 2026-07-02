@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numero;
+    cout << "Ingrese un numero entero positivo N: ";
+    cin >> numero;
+
+    int contadorDigitos = 0;
+    int auxiliar = numero;
+
+    // Si el usuario ingresa 0, tiene 1 dígito de por sí
+    if (auxiliar == 0) {
+        contadorDigitos = 1;
+    } else {
+        // Dividimos sucesivamente entre 10 hasta reducir el número a 0
+        while (auxiliar > 0) {
+            auxiliar = auxiliar / 10;
+            contadorDigitos++; // Sumamos un dígito por cada división exitosa
+        }
+    }
+
+    cout << "El numero " << numero << " tiene " << contadorDigitos << " digitos.\n";
+
+    return 0;
+}
